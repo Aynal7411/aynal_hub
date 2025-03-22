@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Blog - Aynal's Portfolio{% endblock %}
+
+{% block content %}
+<!-- Blog List Section -->
+<section id="blog-list" class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">My Blog</h2>
+        <div class="row">
+            {% for post in posts %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow">
+                    <!-- Blog Post Image -->
+                    {% if post.cover_image %}
+                    <img src="{{ post.cover_image.url }}" class="card-img-top" alt="{{ post.title }}">
+                    {% else %}
+                    <img src="{% static 'images/default_blog.jpg' %}" class="card-img-top" alt="Default Blog Image">
+                    {% endif %}
+                    <!-- Blog Post Details -->
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <p class="card-text">{{ post.excerpt }}</p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><strong>Author:</strong> {{ post.author_name }}</li>
+                            <li class="list-group-item"><strong>Published:</strong> {{ post.published_date|date:"F j, Y" }}</li>
+                        </ul>
+                    </div>
+                    <!-- Blog Post Link -->
+                    <div class="card-footer">
+                        <a href="{% url 'blog_detail' post.slug %}" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

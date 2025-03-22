@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ post.title }} - Aynal's Portfolio{% endblock %}
+
+{% block content %}
+<!-- Blog Detail Section -->
+<section id="blog-detail" class="py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Blog Content -->
+            <div class="col-md-8">
+                <h1>{{ post.title }}</h1>
+                <p class="text-muted">Posted on {{ post.published_date|date:"F j, Y" }} by {{ post.author_name }}</p>
+                {% if post.cover_image %}
+                <img src="{{ post.cover_image.url }}" class="img-fluid mb-4" alt="{{ post.title }}">
+                {% endif %}
+                <div class="blog-content">
+                    {{ post.content|safe }}
+                </div>
+            </div>
+            <!-- Sidebar -->
+            <div class="col-md-4">
+                <!-- About the Author -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">About the Author</h5>
+                        {% if post.author_image %}
+                        <img src="{{ post.author_image.url }}" class="img-fluid mb-3" alt="{{ post.author_name }}">
+                        {% endif %}
+                        <p class="card-text">{{ post.author_bio }}</p>
+                    </div>
+                </div>
+                <!-- Blog Details -->
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Blog Details</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><strong>Category:</strong> {{ post.category }}</li>
+                            <li class="list-group-item"><strong>Tags:</strong> {{ post.tags }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

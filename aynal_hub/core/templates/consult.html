@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Consult with Me - Aynal's Portfolio{% endblock %}
+
+{% block content %}
+<!-- Consult Section -->
+<section id="consult" class="py-2">
+    <div class="container-fluid">
+        <div class="row justify-content-left ">
+            <div class="col-md-5">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h2 class="card-title text-center mb-2"><b>Discuss with me About your solutions</b></h2>
+                        <p class="lead text-center">
+                            Let's work together to bring your ideas to life! Here's how you can reach me.
+                        </p>
+
+                        <!-- Developer Information -->
+                        <div class="developer-info">
+                            <div class="row">
+                                <!-- Profile Picture -->
+                                <div class="col-md-4 text-center">
+                                    <img src="{% static 'images/image_1742623251231.jpeg' %}" alt="Developer" class="img-fluid rounded-circle mb-3" style="width: 150px; height: 150px;">
+                                </div>
+                                <!-- Contact Details -->
+                                <div class="col-md-8">
+                                    <h3>Aynal Haque Milon</h3>
+                                    <p class="text-muted">Full Stack Web Developer</p>
+                                    <ul class="list-unstyled">
+                                        <li><strong>Email:</strong> <a href="mailto:aynalsfoundations@gmail.com">aynalsfoundations@gmail.com</a></li>
+                                        <li><strong>Phone:</strong> +880 1741557411</li>
+                                        <li><strong>Location:</strong> Bogra, Bangladesh</li>
+                                        <li><strong>Availability:</strong> Available for freelance projects and consultations.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Skills Section -->
+                        <div class="skills mt-5">
+                            <h4>Skills</h4>
+                            <ul class="list-group ">
+                                <li class="list-group-item">Django & Django REST Framework and Node js</li>
+                                <li class="list-group-item">React.js & Next.js and react expo(native)</li>
+                                <li class="list-group-item">Python, JavaScript,Ruby  </li>
+                                <li class="list-group-item">PostgreSQL, MySQL, MongoDB,Sql</li>
+                                <li class="list-group-item">Docker, CI/CD, AWS, Heroku,</li>
+                            </ul>
+                        </div>
+
+                        <!-- Consultation Form -->
+                        
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

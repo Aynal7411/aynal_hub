@@ -1,0 +1,52 @@
+/* Custom Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e9c00d;
+}
+
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    font-size: 1.1rem;
+    margin-left: 15px;
+}
+
+.nav-link:hover {
+    color: #007bff !important;
+}
+
+
+.btn-custom {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-custom:hover {
+    background-color: #0056b3;
+}
+
+.profile-image {
+    width: 300px; /* Set a fixed width */
+    height: 300px; /* Set a fixed height */
+    border-radius: 50%; /* Make the image circular */
+    border: 5px solid hsl(0, 96%, 46%); /* Add a white border */
+    box-shadow: 0 4px 8px #9bf50b33; /* Add a subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.profile-image:hover {
+    transform: scale(1.20); /* Slightly enlarge the image on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+}
+

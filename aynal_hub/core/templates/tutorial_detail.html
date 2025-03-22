@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ tutorial.title }} - Aynal's Portfolio{% endblock %}
+
+{% block content %}
+<!-- Tutorial Detail Section -->
+<section id="tutorial-detail" class="py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Tutorial Content -->
+            <div class="col-md-8">
+                <h1>{{ tutorial.title }}</h1>
+                <p class="text-muted">Posted on {{ tutorial.published_date|date:"F j, Y" }} by {{ tutorial.author_name }}</p>
+                {% if tutorial.cover_image %}
+                <img src="{{ tutorial.cover_image.url }}" class="img-fluid mb-4" alt="{{ tutorial.title }}">
+                {% endif %}
+                <div class="tutorial-content">
+                    {{ tutorial.content|safe }}
+                </div>
+            </div>
+            <!-- Sidebar -->
+            <div class="col-md-4">
+                <!-- About the Author -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">About the Author</h5>
+                        {% if tutorial.author_image %}
+                        <img src="{{ tutorial.author_image.url }}" class="img-fluid mb-3" alt="{{ tutorial.author_name }}">
+                        {% endif %}
+                        <p class="card-text">{{ tutorial.author_bio }}</p>
+                    </div>
+                </div>
+                <!-- Tutorial Details -->
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Tutorial Details</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><strong>Category:</strong> {{ tutorial.category }}</li>
+                            <li class="list-group-item"><strong>Tags:</strong> {{ tutorial.tags }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

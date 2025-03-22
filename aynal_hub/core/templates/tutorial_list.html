@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Tutorials - Aynal's Portfolio{% endblock %}
+
+{% block content %}
+<!-- Tutorial List Section -->
+<section id="tutorial-list" class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Tutorials</h2>
+        <div class="row">
+            {% for tutorial in tutorials %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow">
+                    <!-- Tutorial Image -->
+                    {% if tutorial.cover_image %}
+                    <img src="{{ tutorial.cover_image.url }}" class="card-img-top" alt="{{ tutorial.title }}">
+                    {% else %}
+                    <img src="{% static 'images/default_tutorial.jpg' %}" class="card-img-top" alt="Default Tutorial Image">
+                    {% endif %}
+                    <!-- Tutorial Details -->
+                    <div class="card-body">
+                        <h5 class="card-title">{{ tutorial.title }}</h5>
+                        <p class="card-text">{{ tutorial.short_description }}</p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><strong>Author:</strong> {{ tutorial.author_name }}</li>
+                            <li class="list-group-item"><strong>Published:</strong> {{ tutorial.published_date|date:"F j, Y" }}</li>
+                        </ul>
+                    </div>
+                    <!-- Tutorial Link -->
+                    <div class="card-footer">
+                        <a href="{% url 'tutorial_detail' tutorial.slug %}" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

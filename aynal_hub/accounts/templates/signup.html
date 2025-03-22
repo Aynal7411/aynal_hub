@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block title %}Signup - Aynal's Portfolio{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Signup</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form method="post">
+                {% csrf_token %}
+                <!-- Username -->
+                <div class="mb-3">
+                    <label for="id_username" class="form-label">Username</label>
+                    {{ form.username }}
+                    {% if form.username.errors %}
+                    <div class="text-danger">{{ form.username.errors }}</div>
+                    {% endif %}
+                </div>
+                <!-- Full Name -->
+                <div class="mb-3">
+                    <label for="id_full_name" class="form-label">Full Name</label>
+                    {{ form.full_name }}
+                    {% if form.full_name.errors %}
+                    <div class="text-danger">{{ form.full_name.errors }}</div>
+                    {% endif %}
+                </div>
+                <!-- Country -->
+                <div class="mb-3">
+                    <label for="id_country" class="form-label">Country</label>
+                    {{ form.country }}
+                    {% if form.country.errors %}
+                    <div class="text-danger">{{ form.country.errors }}</div>
+                    {% endif %}
+                </div>
+                <!-- District -->
+                <div class="mb-3">
+                    <label for="id_district" class="form-label">District</label>
+                    {{ form.district }}
+                    {% if form.district.errors %}
+                    <div class="text-danger">{{ form.district.errors }}</div>
+                    {% endif %}
+                </div>
+                <!-- Upazila -->
+                <div class="mb-3">
+                    <label for="id_upazila" class="form-label">Upazila</label>
+                    {{ form.upazila }}
+                    {% if form.upazila.errors %}
+                    <div class="text-danger">{{ form.upazila.errors }}</div>
+                    {% endif %}
+                </div>
+                <!-- Password -->
+                <div class="mb-3">
+                    <label for="id_password1" class="form-label">Password</label>
+                    {{ form.password1 }}
+                    {% if form.password1.errors %}
+                    <div class="text-danger">{{ form.password1.errors }}</div>
+                    {% endif %}
+                </div>
+                <!-- Confirm Password -->
+                <div class="mb-3">
+                    <label for="id_password2" class="form-label">Confirm Password</label>
+                    {{ form.password2 }}
+                    {% if form.password2.errors %}
+                    <div class="text-danger">{{ form.password2.errors }}</div>
+                    {% endif %}
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Signup</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

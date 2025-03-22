@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ project.title }} - Aynal's Portfolio{% endblock %}
+
+{% block content %}
+<!-- Project Detail Section -->
+<section id="project-detail" class="py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Project Content -->
+            <div class="col-md-8">
+                <h1>{{ project.title }}</h1>
+                <p class="text-muted">Project Duration: {{ project.start_date|date:"F j, Y" }} - {{ project.end_date|date:"F j, Y"|default:"Present" }}</p>
+                {% if project.image %}
+                <img src="{{ project.image.url }}" class="img-fluid mb-4" alt="{{ project.title }}">
+                {% endif %}
+                <div class="project-content">
+                    <h3>Project Overview</h3>
+                    <p>{{ project.detailed_description }}</p>
+                </div>
+            </div>
+            <!-- Sidebar -->
+            <div class="col-md-4">
+                <!-- Project Details -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Project Details</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><strong>Technologies:</strong> {{ project.technologies_used }}</li>
+                            <li class="list-group-item"><strong>Client:</strong> {{ project.client_name|default:"Personal Project" }}</li>
+                            <li class="list-group-item"><strong>Status:</strong> {{ project.is_active|yesno:"Active,Completed" }}</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Project Links -->
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Project Links</h5>
+                        <ul class="list-group list-group-flush">
+                            {% if project.url %}
+                            <li class="list-group-item">
+                                <a href="{{ project.url }}" class="btn btn-primary w-100" target="_blank">Live Project</a>
+                            </li>
+                            {% endif %}
+                            {% if project.github_repo %}
+                            <li class="list-group-item">
+                                <a href="{{ project.github_repo }}" class="btn btn-outline-secondary w-100" target="_blank">GitHub Repository</a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
